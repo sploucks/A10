@@ -1,0 +1,86 @@
+function A10_PoolVolume_Team24(userInput)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENGR 132 
+% Program Description 
+% replace this text with your program decription as a comment
+%
+% Function Call
+% A10_PoolVolume_Team24()
+%
+% Input Arguments
+% userInput
+%
+% Output Arguments
+% no output arguments
+%
+% Assignment Information
+%   Assignment:     A10, Problem 1
+%   Authors:        Allison Womer, awomer@purdue.edu
+% 					Katherine Sarafin, ksarafin@purdue.edu
+% 					Einar Pedersen, ecpeders@purdue.edu
+%					Sofia Loucks, louckss@purdue.edu
+%   Team ID:        009-24
+%   Academic Integrity:
+%     [] I worked with one or more peers but our collaboration
+%        maintained academic integrity.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ____________________
+%% INITIALIZATION
+
+dataMat = readmatrix('Data_manufacturer_testDims.csv');
+standardData = dataMat(1,2:5);
+rampData = dataMat(2,2:5);
+roundData = dataMat(3,2:5);
+ovalData = dataMat(4,2:5);
+
+%% ____________________
+%% CALCULATIONS
+
+if userInput == 'Standard'
+    volume = A10_poolStandard_louckss(standardData(1), standardData(2), standardData(3), standardData(4));
+end
+
+if userInput == 'Ramp'
+    volume = A10_poolRamp_ksarafin(rampData(1), rampData(2), rampData(3), rampData(4));
+end
+
+if userInput == 'Round'
+    volume = A10_poolRound_awomer(roundData(1), roundData(2), roundData(3), roundData(4));
+end
+
+if userInput == 'Oval'
+    volume = A10_poolOval_ecpeders(ovalData(1), ovalData(2), ovalData(3), ovalData(4));
+end
+
+if (userInput ~= 'Standard' && userInput ~= 'Ramp' && userInput ~= 'Round' && userInput ~= 'Oval')
+    fprintf('Error. Please enter one of four options: Standard, Ramp, Round, Oval.\n')
+end
+
+%% ____________________
+%% FORMATTED TEXT/FIGURE DISPLAYS
+
+fprintf('The volume of the %s pool is %.2f gallons.\n', userInput, volume);
+
+%% ____________________
+%% RESULTS
+
+% -- Standard Pool
+
+
+% -- Ramp Pool
+
+
+% -- Round Pool
+
+
+% -- Oval Pool (only used by teams with 4 members)
+
+
+
+%% ____________________
+%% ACADEMIC INTEGRITY STATEMENT
+% I have not used source code obtained from any other unauthorized
+% source, either modified or unmodified.  Neither have I provided
+% access to my code to another. The function I am submitting
+% is my own original work.
